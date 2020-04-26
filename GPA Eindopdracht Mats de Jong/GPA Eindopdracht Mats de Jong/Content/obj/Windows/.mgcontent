@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Mats/source/repos/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/spr_Cursor.png</File>
+    <File>C:/Users/Mats/source/repos/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/spr_Floor.png</File>
+    <File>C:/Users/Mats/source/repos/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/spr_Humanoid.png</File>
+    <File>C:/Users/Mats/source/repos/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/spr_Wall.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
