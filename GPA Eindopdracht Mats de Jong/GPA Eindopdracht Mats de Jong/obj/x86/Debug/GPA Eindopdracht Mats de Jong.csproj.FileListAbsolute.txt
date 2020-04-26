@@ -22,3 +22,29 @@ C:\Users\Mats\source\repos\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats d
 C:\Users\Mats\source\repos\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\obj\x86\Debug\GPA Eindopdracht Mats de Jong.pdb
 C:\Users\Mats\source\repos\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\Content\spr_Cursor.xnb
 C:\Users\Mats\source\repos\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\Content\spr_Humanoid.xnb
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\Content\spr_Cursor.xnb
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\Content\spr_Floor.xnb
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\Content\spr_Humanoid.xnb
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\Content\spr_Wall.xnb
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\GPA Eindopdracht Mats de Jong.exe
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\GPA Eindopdracht Mats de Jong.pdb
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\obj\x86\Debug\GPA Eindopdracht Mats de Jong.csprojAssemblyReference.cache
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\obj\x86\Debug\GPA Eindopdracht Mats de Jong.csproj.CopyComplete
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\obj\x86\Debug\GPA Eindopdracht Mats de Jong.exe
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\obj\x86\Debug\GPA Eindopdracht Mats de Jong.pdb

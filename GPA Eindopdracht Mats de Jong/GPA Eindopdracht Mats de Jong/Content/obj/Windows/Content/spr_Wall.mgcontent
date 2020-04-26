@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Mats/Documents/GitHub/GPA-Eindopdracht-Mats-de-Jong/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/spr_Humanoid.png</SourceFile>
-  <SourceTime>2020-04-26T14:56:41.7642561+02:00</SourceTime>
-  <DestFile>C:/Users/Mats/Documents/GitHub/GPA-Eindopdracht-Mats-de-Jong/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/bin/Windows/Content/spr_Humanoid.xnb</DestFile>
-  <DestTime>2020-04-26T18:37:59.6735653+02:00</DestTime>
+  <SourceFile>C:/Users/Mats/Documents/GitHub/GPA-Eindopdracht-Mats-de-Jong/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/spr_Wall.png</SourceFile>
+  <SourceTime>2020-04-26T17:44:31.7083213+02:00</SourceTime>
+  <DestFile>C:/Users/Mats/Documents/GitHub/GPA-Eindopdracht-Mats-de-Jong/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/bin/Windows/Content/spr_Wall.xnb</DestFile>
+  <DestTime>2020-04-26T18:37:59.6795706+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -10,13 +10,13 @@ namespace GPA_Eindopdracht_Mats_de_Jong
 {
     class PlayingState : GameObjectList
     {
-        static float scale = 6;
-        //SpriteGameObject background = new SpriteGameObject("Asset");
-        BaseEntity player = new BaseEntity("spr_Humanoid",scale);
+        static float scale = 8;
+        Map map = new Map(scale);
+        BaseEntity player = new BaseEntity("spr_Humanoid",scale, new Vector2(GameEnvironment.Screen.X/2,GameEnvironment.Screen.Y/2));
         public PlayingState()
         {
+            this.Add(map);
             this.Add(player);
-            Console.WriteLine(player.scale);
         }
         public override void Update(GameTime gameTime)
         {
