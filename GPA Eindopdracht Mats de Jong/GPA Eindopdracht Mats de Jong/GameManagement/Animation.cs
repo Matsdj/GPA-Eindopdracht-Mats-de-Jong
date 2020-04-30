@@ -7,7 +7,7 @@ public class Animation : SpriteSheet
     protected bool isLooping;
     protected float time;
 
-    public Animation(string assetname, bool isLooping, float frameTime = 0.1f) : base(assetname)
+    public Animation(string assetname, bool isLooping, int scale, float frameTime = 0.1f) : base(assetname,scale)
     {
         this.frameTime = frameTime;
         this.isLooping = isLooping;

@@ -17,7 +17,7 @@ class RotatingSpriteGameObject : SpriteGameObject {
     /// <param name="layer">Layer for drawing order</param>
     /// <param name="id">Reference for finding object in a list.</param>
     /// <param name="sheetIndex">If asset is a spritesheet only use a certain frame.</param>
-    public RotatingSpriteGameObject(string assetname, float scale) :
+    public RotatingSpriteGameObject(string assetname, int scale) :
         base(assetname, 0, "", 0, scale)
     {
     }

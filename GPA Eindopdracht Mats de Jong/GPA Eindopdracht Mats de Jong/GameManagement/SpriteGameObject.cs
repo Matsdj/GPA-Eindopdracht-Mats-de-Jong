@@ -6,16 +6,16 @@ public class SpriteGameObject : GameObject
     protected SpriteSheet sprite;
     protected Vector2 origin,
         hitbox;
-    public float scale;
+    protected int scale;
     public Color color = Color.White;
     public bool PerPixelCollisionDetection = true;
 
-    public SpriteGameObject(string assetName, int layer = 0, string id = "", int sheetIndex = 0, float scale = 1)
+    public SpriteGameObject(string assetName, int layer = 0, string id = "", int sheetIndex = 0, int scale = 1)
         : base(layer, id)
     {
         if (assetName != "")
         {
-            sprite = new SpriteSheet(assetName, sheetIndex);
+            sprite = new SpriteSheet(assetName, scale, sheetIndex);
         }
         else
         {
@@ -40,6 +40,10 @@ public class SpriteGameObject : GameObject
     public SpriteSheet Sprite
     {
         get { return sprite; }
+        set {
+            if (value.Width == sprite.Width && value.Height == sprite.Height)
+                sprite = value;
+        }
     }
 
     public Vector2 Center
@@ -93,7 +97,7 @@ public class SpriteGameObject : GameObject
         {
             int left = (int)(GlobalPosition.X - origin.X);
             int top = (int)(GlobalPosition.Y - origin.Y);
-            return new Rectangle(left, top, Width, Height);
+            return new Rectangle(left, top, Width*scale, Height*scale);
         }
     }
 

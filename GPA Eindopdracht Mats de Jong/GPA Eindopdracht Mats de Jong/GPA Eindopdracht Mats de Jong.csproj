@@ -54,7 +54,6 @@
     <Compile Include="GameManagement\GameObjectList.cs" />
     <Compile Include="GameManagement\GameSettingsManager.cs" />
     <Compile Include="GameManagement\GameStateManager.cs" />
-    <Compile Include="GameManagement\GridObject.cs" />
     <Compile Include="GameManagement\IGameLoopObject.cs" />
     <Compile Include="GameManagement\InputHelper.cs" />
     <Compile Include="GameManagement\RotatingSpriteGameObject.cs" />
@@ -62,6 +61,9 @@
     <Compile Include="GameManagement\SpriteSheet.cs" />
     <Compile Include="GameManagement\TextGameObject.cs" />
     <Compile Include="GameObjects\BaseEntity.cs" />
+    <Compile Include="GameObjects\Wall.cs" />
+    <Compile Include="GameObjects\Floor.cs" />
+    <Compile Include="GameObjects\MapV2.cs" />
     <Compile Include="GameObjects\Map.cs" />
     <Compile Include="GameStates\PlayingState.cs" />
     <Compile Include="Program.cs" />

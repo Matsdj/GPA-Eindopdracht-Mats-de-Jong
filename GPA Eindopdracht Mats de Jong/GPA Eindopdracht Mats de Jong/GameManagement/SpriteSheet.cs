@@ -10,8 +10,9 @@ public class SpriteSheet
     protected int sheetColumns;
     protected int sheetRows;
     protected bool mirror;
+    protected int scale;
 
-    public SpriteSheet(string assetname, int sheetIndex = 0)
+    public SpriteSheet(string assetname, int scale, int sheetIndex = 0)
     {
         // retrieve the sprite
         sprite = GameEnvironment.AssetManager.GetSprite(assetname);
@@ -28,6 +29,7 @@ public class SpriteSheet
         this.sheetIndex = sheetIndex;
         sheetColumns = 1;
         sheetRows = 1;
+        this.scale = scale;
 
         // see if we can extract the number of sheet elements from the assetname
         string[] assetSplit = assetname.Split('@');
@@ -64,13 +66,17 @@ public class SpriteSheet
         int column_index = sheetIndex % sheetColumns;
         int row_index = sheetIndex / sheetColumns % sheetRows;
 
-        return collisionMask[column_index * Width + x + (row_index * Height + y) * sprite.Width];
+        return collisionMask[column_index * Width + x / scale + (row_index * Height + y / scale) * sprite.Width];
     }
 
     public Texture2D Sprite
     {
         get { return sprite; }
-        set { sprite = value; }
+        set
+        {
+            if (value.Width == sprite.Width && value.Height == sprite.Height)
+                sprite = value;
+        }
     }
 
     public Vector2 Center

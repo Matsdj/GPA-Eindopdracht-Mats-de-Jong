@@ -29,4 +29,11 @@ public class Custom
         Texture.SetData<Color>(pixels);
         return Texture;
     }
+    public static Vector2 SnapToGrid(int scale, Vector2 pos)
+    {
+        int tileSize = scale * 8;
+        pos.X = (int)Math.Floor((float)pos.X / tileSize) * tileSize;
+        pos.Y = (int)Math.Floor((float)pos.Y / tileSize) * tileSize;
+        return pos;
+    }
 }
