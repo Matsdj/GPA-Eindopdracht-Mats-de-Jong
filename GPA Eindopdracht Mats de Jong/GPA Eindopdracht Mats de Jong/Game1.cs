@@ -13,7 +13,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         {
             base.LoadContent();
             // Create a new SpriteBatch, which can be used to draw textures.
-            screen = new Point(1080, 720);
+            screen = new Point(1280, 720);
             ApplyResolutionSettings();
 
             GameStateManager.AddGameState("PlayState", new PlayingState());

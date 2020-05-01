@@ -51,7 +51,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                     }
                 }
             }
-            
+            /*
             //Print in console how the map array looks
             for (int y = 0; y < size.Y; y++)
             {
@@ -69,6 +69,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                 }
                 Console.WriteLine(consoleLine);
             }
+            //*/
         }
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {

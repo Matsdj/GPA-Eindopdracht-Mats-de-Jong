@@ -22,6 +22,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             int y = GameEnvironment.Random.Next(1, map.Rows);
             player.Position = new Vector2(x, y)*map.TileSize;
             this.Add(player);
+            this.Add(new MiniMap(map, player, new Point(36, 36), 1, MiniMap.ViewLoc.TopRight));
         }
         public override void Update(GameTime gameTime)
         {
@@ -31,19 +32,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         }
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.GraphicsDevice.SamplerStates[0] = SamplerState.PointClamp;
             base.Draw(gameTime, spriteBatch);
-        }
-        private static void DrawMap(SpriteBatch spriteBatch, MapV2 map)
-        {
-            for (int y = 0; y < map.Rows; y++)
-            {
-                for (int x = 0; x < map.Columns; x++)
-                {
-                    Texture2D sprite = (map.Get(x, y) as SpriteGameObject).Sprite.Sprite;
-                    
-                }
-            }
         }
     }
 }

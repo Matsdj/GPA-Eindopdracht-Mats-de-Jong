@@ -12,7 +12,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
     class BaseEntity : RotatingSpriteGameObject
     {
         bool isPlayer;
-        float movementSpeed = 160;
+        float movementSpeed = 320;
         public BaseEntity(String asset, int scale, Vector2 position, bool isPlayer) : base(asset, scale)
         {
             this.isPlayer = isPlayer;

@@ -61,6 +61,7 @@
     <Compile Include="GameManagement\SpriteSheet.cs" />
     <Compile Include="GameManagement\TextGameObject.cs" />
     <Compile Include="GameObjects\BaseEntity.cs" />
+    <Compile Include="GameObjects\MiniMap.cs" />
     <Compile Include="GameObjects\Wall.cs" />
     <Compile Include="GameObjects\Floor.cs" />
     <Compile Include="GameObjects\MapV2.cs" />
