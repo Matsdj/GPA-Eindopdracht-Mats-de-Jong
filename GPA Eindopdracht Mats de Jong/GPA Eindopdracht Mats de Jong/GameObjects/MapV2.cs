@@ -49,6 +49,8 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                         Floor floor = new Floor(floorColors[0], floorColors[1], scale);
                         Add(floor, x, y);
                     }
+                    //Floor floorT = new Floor(floorColors[0], floorColors[1], scale);
+                    //Add(floorT, x, y);
                 }
             }
             /*
@@ -78,6 +80,24 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         public int TileSize
         {
             get { return tileSize; }
+        }
+        public Point GridLoc(SpriteGameObject obj)
+        {
+            Point gridLoc;
+            gridLoc.X = (int)(obj.Position.X + obj.Origin.X) / (TileSize);
+            gridLoc.Y = (int)(obj.Position.Y + obj.Origin.Y) / (TileSize);
+            return gridLoc;
+        }
+        public Vector2 RandomFreePositionInMap()
+        {
+            int x = GameEnvironment.Random.Next(1, Columns - 1);
+            int y = GameEnvironment.Random.Next(1, Rows - 1);
+            while (!(Get(x,y) is Floor))
+            {
+                x = GameEnvironment.Random.Next(1, Columns - 1);
+                y = GameEnvironment.Random.Next(1, Rows - 1);
+            }
+            return new Vector2(x, y) * TileSize;
         }
     }
 }
