@@ -65,8 +65,9 @@
     <Compile Include="GameObjects\EntityThings\Sword.cs" />
     <Compile Include="GameObjects\MiniMap.cs" />
     <Compile Include="GameObjects\Cursor.cs" />
-    <Compile Include="GameObjects\Wall.cs" />
-    <Compile Include="GameObjects\Floor.cs" />
+    <Compile Include="GameObjects\Tiles\Tile.cs" />
+    <Compile Include="GameObjects\Tiles\Wall.cs" />
+    <Compile Include="GameObjects\Tiles\Floor.cs" />
     <Compile Include="GameObjects\MapV2.cs" />
     <Compile Include="GameObjects\Map.cs" />
     <Compile Include="GameStates\PlayingState.cs" />

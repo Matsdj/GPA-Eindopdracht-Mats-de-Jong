@@ -24,9 +24,9 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             world.Add(map);
             
             player = new BaseEntity("spr_Humanoid", scale, map.RandomFreePositionInMap(), map, world, true, cursor);
-            player.movementSpeed *= 1.5f;
+            player.movementSpeed *= 3;
             world.Add(player);
-            for(int i = 0; i < map.Columns/10; i++)
+            for(int i = 0; i < map.Columns/5; i++)
             {
                 world.Add(new BaseEntity("spr_Humanoid", scale, map.RandomFreePositionInMap(), map, world, false, player));
             }
@@ -39,7 +39,6 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         {
             base.Update(gameTime);
             world.Position -= player.GlobalPosition - (GameEnvironment.Screen.ToVector2() / 2);
-
         }
     }
 }

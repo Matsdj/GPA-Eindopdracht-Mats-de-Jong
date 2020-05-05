@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace GPA_Eindopdracht_Mats_de_Jong
 {
-    class Floor : SpriteGameObject
+    class Tile : SpriteGameObject
     {
-        public Floor(Color light, Color dark, int scale) : base("spr_Floor", 0, "", 0, scale)
+        public Tile(Color light, Color dark, int scale, string assetName) : base(assetName, 0, "", 0, scale)
         {
-            sprite.Sprite = Custom.ColorSprite(sprite.Sprite,light,dark);
+            sprite.Sprite = Custom.ColorSprite(sprite.Sprite, light, dark);
             origin = Center;
         }
     }
