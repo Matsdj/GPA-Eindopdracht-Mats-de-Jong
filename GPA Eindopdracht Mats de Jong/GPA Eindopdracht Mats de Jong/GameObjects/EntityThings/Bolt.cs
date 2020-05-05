@@ -66,8 +66,11 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             {
                 visible = false;
             }
-            cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (wielder is BaseEntity && (wielder as BaseEntity).IsPlayer) cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (cooldown > 0)
+            {
+                cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (wielder is BaseEntity && (wielder as BaseEntity).IsPlayer) cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         protected GameObject wielder;
         protected GameObject target;
         protected List<GameObject> damagedObjects = new List<GameObject>();
-        public Attack(string assetName, int scale, GameObject wielder, GameObject target, float damage, float cooldownMax = 1) : base(assetName, scale)
+        public Attack(string assetName, int scale, GameObject wielder, GameObject target, float damage, float cooldownMax = 2) : base(assetName, scale)
         {
             this.wielder = wielder;
             this.damage = damage;
@@ -33,6 +33,10 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                 cooldown = cooldownMax;
                 base.Reset();
             }
+        }
+        public float Cooldown
+        {
+            get { return cooldown; }
         }
     }
 }

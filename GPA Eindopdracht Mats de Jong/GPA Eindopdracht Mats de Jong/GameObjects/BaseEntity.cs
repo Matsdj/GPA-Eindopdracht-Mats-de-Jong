@@ -14,14 +14,14 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         protected bool isPlayer;
         public float movementSpeed = 16,
             maxHealth = 10,
-            health = 0, 
+            health = 0,
             attack = 5;
         protected MapV2 map;
         protected GameObjectList world;
         protected PathfindingAI pathfindingAI;
         protected SpriteGameObject targetEntity;
         protected Vector2[] path;
-        protected Attack mainAttack;
+        protected Attack primaryAttack;
         protected Attack secondaryAttack;
         public BaseEntity(String asset, int scale, Vector2 position, MapV2 map, GameObjectList world, bool isPlayer, SpriteGameObject targetEntity) : base(asset, scale)
         {
@@ -38,9 +38,9 @@ namespace GPA_Eindopdracht_Mats_de_Jong
 
             this.movementSpeed *= scale;
             this.health = maxHealth;
-            this.mainAttack = new Sword(scale, this, targetEntity, attack);
+            this.primaryAttack = new Sword(scale, this, targetEntity, attack);
             this.secondaryAttack = new Bolt(scale, this, targetEntity, attack, map);
-            world.Add(mainAttack);
+            world.Add(primaryAttack);
             world.Add(secondaryAttack);
         }
         public override void Update(GameTime gameTime)
@@ -50,10 +50,11 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             WallCollision();
             EntityCollision();
             base.Update(gameTime);
-            if (visible && health <= 0) 
-            { 
+            if (visible && health <= 0)
+            {
                 visible = false;
                 velocity = new Vector2(0, 0);
+                (parent.Parent as PlayingState).hud.score += 10;
             }
         }
         public virtual void WallCollision()
@@ -72,17 +73,17 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         }
         public virtual void EntityCollision()
         {
-            if (visible) foreach(GameObject obj in world.Children)
-            {
-                if (obj.Visible && obj != this && obj is BaseEntity)
+            if (visible) foreach (GameObject obj in world.Children)
                 {
-                    if ((obj.Position - position).Length() < Width*scale)
+                    if (obj.Visible && obj != this && obj is BaseEntity)
                     {
-                        Vector2 dist = Position - obj.Position;
-                        Position += dist / dist.Length();
+                        if ((obj.Position - position).Length() < Width * scale)
+                        {
+                            Vector2 dist = Position - obj.Position;
+                            Position += dist / dist.Length();
+                        }
                     }
                 }
-            }
         }
         public virtual void AI()
         {
@@ -99,27 +100,33 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                     velocity = new Vector2(0, 0);
                 }
             }
-            if ((targetEntity.Position - position).Length() < map.CellWidth * 2) mainAttack.Reset();
+            if ((targetEntity.Position - position).Length() < map.CellWidth * 2) primaryAttack.Reset();
             if ((targetEntity.Position - position).Length() < map.CellWidth * 10) secondaryAttack.Reset();
         }
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            if (visible && path != null && path.Length != 0)
+            if (visible)
             {
-                Rectangle spritePart = new Rectangle(0, 0, Sprite.Width, Sprite.Height);
-                for (int i = 0; i < path.Length; i++)
+                if (path != null && path.Length != 0)
                 {
-                    spriteBatch.Draw(Sprite.Sprite, path[i] + parent.Position + Origin, spritePart, new Color(255,255,255,100), 0.0f, new Vector2(0, 0), scale/2, SpriteEffects.None, 0);
+                    Rectangle spritePart = new Rectangle(0, 0, Sprite.Width, Sprite.Height);
+                    for (int i = 0; i < path.Length; i++)
+                    {
+                        spriteBatch.Draw(Sprite.Sprite, path[i] + parent.Position + Origin, spritePart, new Color(255, 255, 255, 100), 0.0f, new Vector2(0, 0), scale / 2, SpriteEffects.None, 0);
+                    }
+                    spriteBatch.Draw(Sprite.Sprite, path[0] + parent.Position + Origin, spritePart, new Color(0, 255, 0, 100), 0.0f, new Vector2(0, 0), scale / 2, SpriteEffects.None, 0);
+                    spriteBatch.Draw(Sprite.Sprite, path[path.Length - 1] + parent.Position + Origin, spritePart, new Color(255, 0, 0, 100), 0.0f, new Vector2(0, 0), scale / 2, SpriteEffects.None, 0);
                 }
-                spriteBatch.Draw(Sprite.Sprite, path[0] + parent.Position + Origin, spritePart, new Color(0, 255, 0, 100), 0.0f, new Vector2(0, 0), scale/2, SpriteEffects.None, 0);
-                spriteBatch.Draw(Sprite.Sprite, path[path.Length-1] + parent.Position + Origin, spritePart, new Color(255, 0, 0, 100), 0.0f, new Vector2(0, 0), scale/2, SpriteEffects.None, 0);
-            }
-            base.Draw(gameTime, spriteBatch);
+                base.Draw(gameTime, spriteBatch);
 
-            //Draw Health
-            Rectangle healthBar = new Rectangle((int)GlobalPosition.X - Width * scale / 2, (int)GlobalPosition.Y - Height * scale, 
-                (int)(Width * scale * (health/ maxHealth)), (int)Height * scale / 4);
-            DrawingHelper.DrawRectangle(healthBar, spriteBatch, Color.Lime, true);
+                //Draw Health
+                Rectangle BackBar = new Rectangle((int)GlobalPosition.X - Width * scale / 2, (int)GlobalPosition.Y - Height * scale,
+                    (int)Width * scale, (int)Height * scale / 4);
+                DrawingHelper.DrawRectangle(BackBar, spriteBatch, Color.Black, true);
+                Rectangle healthBar = new Rectangle((int)GlobalPosition.X - Width * scale / 2, (int)GlobalPosition.Y - Height * scale,
+                    (int)(Width * scale * (health / maxHealth)), (int)Height * scale / 4);
+                DrawingHelper.DrawRectangle(healthBar, spriteBatch, Color.Lime, true);
+            }
         }
         public override void HandleInput(InputHelper inputHelper)
         {
@@ -146,7 +153,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                 //Attack1
                 if (inputHelper.MouseLeftButtonDown())
                 {
-                    mainAttack.Reset();
+                    primaryAttack.Reset();
                 }
                 if (inputHelper.MouseRightButtonDown())
                 {
@@ -157,6 +164,14 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         public bool IsPlayer
         {
             get { return isPlayer; }
+        }
+        public Attack PrimaryAttack
+        {
+            get { return primaryAttack; }
+        }
+        public Attack SecondaryAttack
+        {
+            get { return secondaryAttack; }
         }
     }
 }

@@ -65,6 +65,7 @@
     <Compile Include="GameObjects\EntityThings\Attack.cs" />
     <Compile Include="GameObjects\EntityThings\PathfindingAI.cs" />
     <Compile Include="GameObjects\EntityThings\Sword.cs" />
+    <Compile Include="GameObjects\HUD.cs" />
     <Compile Include="GameObjects\MiniMap.cs" />
     <Compile Include="GameObjects\Cursor.cs" />
     <Compile Include="GameObjects\Tiles\Tile.cs" />

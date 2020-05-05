@@ -50,3 +50,4 @@ C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Ma
 C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\obj\x86\Debug\GPA Eindopdracht Mats de Jong.pdb
 C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\Content\spr_Sword.xnb
 C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\Content\spr_Bolt.xnb
+C:\Users\Mats\Documents\GitHub\GPA-Eindopdracht-Mats-de-Jong\GPA Eindopdracht Mats de Jong\GPA Eindopdracht Mats de Jong\bin\Windows\x86\Debug\Content\GameFont.xnb

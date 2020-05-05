@@ -16,6 +16,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         public MapV2 map;
         public BaseEntity player;
         GameObjectList world = new GameObjectList();
+        public HUD hud;
         public PlayingState()
         {
             Cursor cursor = new Cursor(2);
@@ -25,8 +26,8 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             
             player = new BaseEntity("spr_Humanoid", scale, map.RandomFreePositionInMap(), map, world, true, cursor);
             player.movementSpeed *= 3;
-            player.maxHealth *= 2;
-            player.health *= 2;
+            player.maxHealth *= 4;
+            player.health *= 4;
             world.Add(player);
             for(int i = 0; i < map.Columns/5; i++)
             {
@@ -34,8 +35,10 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             }
             this.Add(world);
             this.Add(new MiniMap(map, player, world, new Point(42, 42), 1, MiniMap.ViewLoc.TopRight));
-            this.Add(cursor);
 
+            hud = new HUD(player);
+            this.Add(hud);
+            this.Add(cursor);
         }
         public override void Update(GameTime gameTime)
         {

@@ -51,14 +51,14 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                     }
                 }
             }
-            else
-            {
-                cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-            }
             if (swingRange < 0)
             {
-                 visible = false;
+                visible = false;
             }
+                if (cooldown > 0)
+                {
+                    cooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
         }
     }
 }
