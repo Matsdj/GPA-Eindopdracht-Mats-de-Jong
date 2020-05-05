@@ -12,13 +12,15 @@ namespace GPA_Eindopdracht_Mats_de_Jong
     class PlayingState : GameObjectList
     {
         static int scale = 6;
-        //Map map = new Map(scale);
+        SpriteGameObject background;
         public MapV2 map;
         public BaseEntity player;
         GameObjectList world = new GameObjectList();
         public HUD hud;
         public PlayingState()
         {
+            background = new SpriteGameObject("spr_Background",0,"",0,80);
+            this.Add(background);
             Cursor cursor = new Cursor(2);
 
             map = new MapV2(scale, new Point(50, 50));
