@@ -9,7 +9,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
 {
     class PathfindingAI
     {
-        public Vector2[] findPath(MapV2 map, BaseEntity obj, BaseEntity targetObj)
+        public Vector2[] findPath(MapV2 map, SpriteGameObject obj, SpriteGameObject targetObj)
         {
             Point startPoint = map.GridLoc(obj);
             Point endPoint = map.GridLoc(targetObj);
@@ -83,7 +83,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                 path = new Vector2[gridPath.Length];
                 for (int i = 0; i < path.Length; i++)
                 {
-                    path[i] = gridPath[i].ToVector2() * map.TileSize;
+                    path[i] = gridPath[i].ToVector2() * map.CellWidth;
                 }
             }
             //Return

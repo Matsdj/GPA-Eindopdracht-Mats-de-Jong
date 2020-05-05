@@ -71,16 +71,20 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         {
             Texture2D sprite = obj.Sprite.Sprite;
             Vector2 realPos = ConvertToRealPosistion(obj);
-            Rectangle spritePart = new Rectangle(0, 0, sprite.Width, sprite.Height);
-            Color col = Color.White;
-            if (obj is RotatingSpriteGameObject)
+            if (realPos.X >= miniMapRect.X && realPos.X < miniMapRect.X + miniMapRect.Width && realPos.Y >= miniMapRect.Y && realPos.Y < miniMapRect.Y + miniMapRect.Height)
             {
-                RotatingSpriteGameObject rotObj = obj as RotatingSpriteGameObject;
-                realPos += new Vector2(0.5f*spritePart.Width, 0.5f*spritePart.Height);
-                spriteBatch.Draw(sprite, realPos, null, col, rotObj.Angle, rotObj.Origin, drawScale, SpriteEffects.None, 0);
-            } else
-            {
-                spriteBatch.Draw(sprite, realPos, spritePart, col, 0.0f, new Vector2(0, 0), drawScale, SpriteEffects.None, 0);
+                Rectangle spritePart = new Rectangle(0, 0, sprite.Width, sprite.Height);
+                Color col = Color.White;
+                if (obj is RotatingSpriteGameObject)
+                {
+                    RotatingSpriteGameObject rotObj = obj as RotatingSpriteGameObject;
+                    realPos += new Vector2(0.5f * spritePart.Width, 0.5f * spritePart.Height);
+                    spriteBatch.Draw(sprite, realPos, null, col, rotObj.Angle, rotObj.Origin, drawScale, SpriteEffects.None, 0);
+                }
+                else
+                {
+                    spriteBatch.Draw(sprite, realPos, spritePart, col, 0.0f, new Vector2(0, 0), drawScale, SpriteEffects.None, 0);
+                }
             }
         }
         private Vector2 ConvertToRealPosistion(SpriteGameObject obj)

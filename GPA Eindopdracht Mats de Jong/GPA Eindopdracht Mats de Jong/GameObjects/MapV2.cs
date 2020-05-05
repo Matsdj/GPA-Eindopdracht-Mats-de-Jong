@@ -12,14 +12,13 @@ namespace GPA_Eindopdracht_Mats_de_Jong
     class MapV2 : GameObjectGrid
     {
         private int scale;
-        private int tileSize;
         private Point size = new Point();
         public Color[] floorColors = { Color.Green, Color.DarkGreen };
         public Color[] wallColors = { Color.DarkGreen, new Color(0, 40, 0) };
         public MapV2(int scale, Point size) : base(size.Y, size.X)
         {
             this.scale = scale;
-            tileSize = scale * 8;
+            int tileSize = scale * 8;
             CellWidth = tileSize;
             CellHeight = tileSize;
             GenerateMap(size);
@@ -77,15 +76,11 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         {
             base.Draw(gameTime, spriteBatch);
         }
-        public int TileSize
-        {
-            get { return tileSize; }
-        }
         public Point GridLoc(SpriteGameObject obj)
         {
             Point gridLoc;
-            gridLoc.X = (int)(obj.Position.X + obj.Origin.X) / (TileSize);
-            gridLoc.Y = (int)(obj.Position.Y + obj.Origin.Y) / (TileSize);
+            gridLoc.X = (int)(obj.Position.X + obj.Origin.X) / (CellWidth);
+            gridLoc.Y = (int)(obj.Position.Y + obj.Origin.Y) / (CellHeight);
             return gridLoc;
         }
         public Vector2 RandomFreePositionInMap()
@@ -97,7 +92,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                 x = GameEnvironment.Random.Next(1, Columns - 1);
                 y = GameEnvironment.Random.Next(1, Rows - 1);
             }
-            return new Vector2(x, y) * TileSize;
+            return new Vector2(x, y) * CellWidth;
         }
     }
 }

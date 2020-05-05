@@ -11,33 +11,36 @@ namespace GPA_Eindopdracht_Mats_de_Jong
 {
     class BaseEntity : RotatingSpriteGameObject
     {
-        int scale;
         bool isPlayer;
         public float movementSpeed = 32,
             health = 10, 
             attack = 5;
         protected MapV2 map;
+        protected GameObjectList world;
         protected PathfindingAI pathfindingAI;
-        protected BaseEntity targetEntity;
+        protected SpriteGameObject targetEntity;
         protected Vector2[] path;
         protected RotatingSpriteGameObject meleeAttack;
-        public BaseEntity(String asset, int scale, Vector2 position, MapV2 map, bool isPlayer) : base(asset, scale)
+        public BaseEntity(String asset, int scale, Vector2 position, MapV2 map, GameObjectList world, bool isPlayer, SpriteGameObject targetEntity) : base(asset, scale)
         {
             this.isPlayer = isPlayer;
 
             this.Origin = this.Center;
             this.Sprite.Sprite = Custom.ColorSprite(this.Sprite.Sprite, Color.Chocolate, Color.SaddleBrown);
 
-            this.scale = scale;
             this.position = position;
             this.map = map;
             this.pathfindingAI = new PathfindingAI();
+            this.targetEntity = targetEntity;
+            this.world = world;
 
             this.movementSpeed *= scale;
-            this.meleeAttack = new Sword(scale, this, attack);
+            this.meleeAttack = new Sword(scale, this, targetEntity, attack);
+            world.Add(meleeAttack);
         }
         public override void Update(GameTime gameTime)
         {
+            
             if (velocity != new Vector2(0, 0)) AngularDirection = velocity;
             if (!isPlayer) { AI(); }
             WallCollision();
@@ -60,7 +63,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         }
         public virtual void EntityCollision()
         {
-            foreach(GameObject obj in (parent as GameObjectList).Children)
+            foreach(GameObject obj in world.Children)
             {
                 if (obj is BaseEntity && obj != this)
                 {
@@ -76,7 +79,6 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         {
             if (targetEntity == null)
             {
-                GameObjectList world = parent as GameObjectList;
                 foreach (GameObject obj in world.Children)
                 {
                     if (obj is BaseEntity)

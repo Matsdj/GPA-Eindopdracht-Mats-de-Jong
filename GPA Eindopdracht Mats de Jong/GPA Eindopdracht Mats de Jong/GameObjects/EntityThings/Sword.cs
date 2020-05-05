@@ -9,14 +9,19 @@ namespace GPA_Eindopdracht_Mats_de_Jong
 {
     class Sword : RotatingSpriteGameObject
     {
-        static int swingRangeMax = 120;
+        static int swingRangeMax = 180;
+        static float swingTime = 0.2f; //in seconds
         float damage;
         int swingRange;
-        public Sword(int scale, GameObject parent, float damage) : base("spr_Sword", scale)
+        GameObject wielder;
+        GameObject target;
+        public Sword(int scale, GameObject wielder, GameObject target, float damage) : base("spr_Sword", scale)
         {
-            this.parent = parent;
+            this.wielder = wielder;
             this.damage = damage;
+            this.target = target;
             origin.Y = Height;
+
             Reset();
         }
         public override void Reset()
@@ -25,21 +30,24 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             if (swingRange <= 0)
             {
                 swingRange = swingRangeMax;
-                Degrees = -45 + swingRange / 2;
+                AngularDirection = target.GlobalPosition - wielder.GlobalPosition;
+                offsetDegrees = -45;
+                Degrees += swingRangeMax / 2;
             }
         }
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            position = parent.Position;
-            if (swingRange > 0)
+            position = wielder.Position;
+            if (visible)
             {
-                int swingSpeed = swingRangeMax * (int)gameTime.ElapsedGameTime.TotalSeconds;
+                int swingSpeed = (int)(swingRangeMax * gameTime.ElapsedGameTime.TotalSeconds / swingTime);
                 Degrees -= swingSpeed;
                 swingRange -= swingSpeed;
-            } else
+            } 
+            if (swingRange < 0)
             {
-                //visible = false;
+                 visible = false;
             }
             
         }

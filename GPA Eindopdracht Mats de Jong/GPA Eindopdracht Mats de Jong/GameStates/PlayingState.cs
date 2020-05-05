@@ -18,19 +18,21 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         GameObjectList world = new GameObjectList();
         public PlayingState()
         {
+            Cursor cursor = new Cursor(2);
+
             map = new MapV2(scale, new Point(50, 50));
             world.Add(map);
             
-            player = new BaseEntity("spr_Humanoid", scale, map.RandomFreePositionInMap(), map, true);
+            player = new BaseEntity("spr_Humanoid", scale, map.RandomFreePositionInMap(), map, world, true, cursor);
             player.movementSpeed *= 1.5f;
             world.Add(player);
             for(int i = 0; i < map.Columns/10; i++)
             {
-                world.Add(new BaseEntity("spr_Humanoid", scale, map.RandomFreePositionInMap(), map, false));
+                world.Add(new BaseEntity("spr_Humanoid", scale, map.RandomFreePositionInMap(), map, world, false, player));
             }
             this.Add(world);
             this.Add(new MiniMap(map, player, world, new Point(42, 42), 1, MiniMap.ViewLoc.TopRight));
-            this.Add(new Cursor(2));
+            this.Add(cursor);
 
         }
         public override void Update(GameTime gameTime)
