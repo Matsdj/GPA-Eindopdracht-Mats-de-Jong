@@ -29,7 +29,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                 world.Add(new BaseEntity("spr_Humanoid", scale, map.RandomFreePositionInMap(), map, false));
             }
             this.Add(world);
-            this.Add(new MiniMap(map, player, new Point(42, 42), 1, MiniMap.ViewLoc.TopRight));
+            this.Add(new MiniMap(map, player, world, new Point(42, 42), 1, MiniMap.ViewLoc.TopRight));
             this.Add(new Cursor(2));
 
         }

@@ -62,6 +62,7 @@
     <Compile Include="GameManagement\TextGameObject.cs" />
     <Compile Include="GameObjects\BaseEntity.cs" />
     <Compile Include="GameObjects\EntityThings\PathfindingAI.cs" />
+    <Compile Include="GameObjects\EntityThings\Sword.cs" />
     <Compile Include="GameObjects\MiniMap.cs" />
     <Compile Include="GameObjects\Cursor.cs" />
     <Compile Include="GameObjects\Wall.cs" />

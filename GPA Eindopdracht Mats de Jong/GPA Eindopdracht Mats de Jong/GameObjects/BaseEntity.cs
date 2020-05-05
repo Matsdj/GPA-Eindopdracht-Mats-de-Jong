@@ -11,23 +11,30 @@ namespace GPA_Eindopdracht_Mats_de_Jong
 {
     class BaseEntity : RotatingSpriteGameObject
     {
+        int scale;
         bool isPlayer;
         public float movementSpeed = 32,
             health = 10, 
             attack = 5;
-        MapV2 map;
-        PathfindingAI pathfindingAI;
-        BaseEntity targetEntity;
-        Vector2[] path;
+        protected MapV2 map;
+        protected PathfindingAI pathfindingAI;
+        protected BaseEntity targetEntity;
+        protected Vector2[] path;
+        protected RotatingSpriteGameObject meleeAttack;
         public BaseEntity(String asset, int scale, Vector2 position, MapV2 map, bool isPlayer) : base(asset, scale)
         {
             this.isPlayer = isPlayer;
+
+            this.Origin = this.Center;
             this.Sprite.Sprite = Custom.ColorSprite(this.Sprite.Sprite, Color.Chocolate, Color.SaddleBrown);
+
+            this.scale = scale;
             this.position = position;
             this.map = map;
-            this.origin = Center;
-            this.movementSpeed *= scale;
             this.pathfindingAI = new PathfindingAI();
+
+            this.movementSpeed *= scale;
+            this.meleeAttack = new Sword(scale, this, attack);
         }
         public override void Update(GameTime gameTime)
         {
@@ -41,9 +48,9 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         {
             foreach (SpriteGameObject obj in map.Objects)
             {
-                if (obj is Wall && this.CollidesWith(obj))
+                if (obj is Wall && CollidesWith(obj))
                 {
-                    while (this.CollidesWith(obj) && position != obj.Position)
+                    while (CollidesWith(obj) && position != obj.Position)
                     {
                         Vector2 dist = position - obj.Position;
                         position += dist / dist.Length();
@@ -59,8 +66,8 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                 {
                     if ((obj.Position - position).Length() < Width*scale)
                     {
-                        Vector2 dist = position - obj.Position;
-                        position += dist / dist.Length();
+                        Vector2 dist = Position - obj.Position;
+                        Position += dist / dist.Length();
                     }
                 }
             }
@@ -97,13 +104,13 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         {
             if (path != null && path.Length != 0)
             {
-                Rectangle spritePart = new Rectangle(0, 0, sprite.Width, sprite.Height);
+                Rectangle spritePart = new Rectangle(0, 0, Sprite.Width, Sprite.Height);
                 for (int i = 0; i < path.Length; i++)
                 {
-                    spriteBatch.Draw(Sprite.Sprite, path[i] + parent.Position + origin, spritePart, new Color(255,255,255,100), 0.0f, new Vector2(0, 0), scale/2, SpriteEffects.None, 0);
+                    spriteBatch.Draw(Sprite.Sprite, path[i] + parent.Position + Origin, spritePart, new Color(255,255,255,100), 0.0f, new Vector2(0, 0), scale/2, SpriteEffects.None, 0);
                 }
-                spriteBatch.Draw(Sprite.Sprite, path[0] + parent.Position + origin, spritePart, new Color(0, 255, 0, 100), 0.0f, new Vector2(0, 0), scale/2, SpriteEffects.None, 0);
-                spriteBatch.Draw(Sprite.Sprite, path[path.Length-1] + parent.Position + origin, spritePart, new Color(255, 0, 0, 100), 0.0f, new Vector2(0, 0), scale/2, SpriteEffects.None, 0);
+                spriteBatch.Draw(Sprite.Sprite, path[0] + parent.Position + Origin, spritePart, new Color(0, 255, 0, 100), 0.0f, new Vector2(0, 0), scale/2, SpriteEffects.None, 0);
+                spriteBatch.Draw(Sprite.Sprite, path[path.Length-1] + parent.Position + Origin, spritePart, new Color(255, 0, 0, 100), 0.0f, new Vector2(0, 0), scale/2, SpriteEffects.None, 0);
             }
             base.Draw(gameTime, spriteBatch);
             
@@ -113,6 +120,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             base.HandleInput(inputHelper);
             if (isPlayer)
             {
+                //Movement
                 if (inputHelper.IsKeyDown(Keys.Right)) { velocity.X = 1; }
                 else
                     if (inputHelper.IsKeyDown(Keys.Left)) { velocity.X = -1; }
@@ -128,6 +136,11 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                 if (velocity != new Vector2(0, 0))
                 {
                     velocity = velocity / velocity.Length() * movementSpeed;
+                }
+                //Attack1
+                if (inputHelper.MouseLeftButtonDown())
+                {
+                    meleeAttack.Reset();
                 }
             }
         }

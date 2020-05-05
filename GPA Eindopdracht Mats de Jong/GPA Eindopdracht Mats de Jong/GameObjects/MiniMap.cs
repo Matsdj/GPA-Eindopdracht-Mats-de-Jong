@@ -12,16 +12,18 @@ namespace GPA_Eindopdracht_Mats_de_Jong
     {
         protected BaseEntity player;
         protected MapV2 map;
+        protected GameObjectList world;
         protected Point tileCount;
         private Rectangle miniMapRect;
         protected float drawScale;
         protected ViewLoc viewLoc;
         protected int spriteWidth;
 
-        public MiniMap(MapV2 map, BaseEntity player, Point tileCount, float drawScale, ViewLoc viewLoc)
+        public MiniMap(MapV2 map, BaseEntity player, GameObjectList world, Point tileCount, float drawScale, ViewLoc viewLoc)
         {
             this.map = map;
             this.player = player;
+            this.world = world;
             this.tileCount = tileCount;
             this.drawScale = drawScale;
             this.viewLoc = viewLoc;
@@ -57,7 +59,13 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                     DrawOneTile(spriteBatch,map.Get(x,y) as SpriteGameObject);
                 }
             }
-            DrawOneTile(spriteBatch, player);
+            foreach(GameObject obj in world.Children)
+            {
+                if (obj is BaseEntity)
+                {
+                    DrawOneTile(spriteBatch, (obj as BaseEntity));
+                }
+            }
         }
         private void DrawOneTile(SpriteBatch spriteBatch, SpriteGameObject obj)
         {
