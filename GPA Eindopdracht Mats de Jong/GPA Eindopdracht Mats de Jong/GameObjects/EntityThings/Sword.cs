@@ -7,23 +7,13 @@ using System.Threading.Tasks;
 
 namespace GPA_Eindopdracht_Mats_de_Jong
 {
-    class Sword : RotatingSpriteGameObject
+    class Sword : Attack
     {
-        static int swingRangeMax = 180,
-            cooldownMax = 1; //in seconds
-        static float swingTime = 0.2f; //in seconds
-        float damage;
+        protected int swingRangeMax = 180;
+        protected float swingTime = 0.2f; //in seconds
         int swingRange;
-        float cooldown;
-        GameObject wielder;
-        GameObject target;
-        List<GameObject> damagedObjects = new List<GameObject>();
-        public Sword(int scale, GameObject wielder, GameObject target, float damage) : base("spr_Sword", scale)
+        public Sword(int scale, GameObject wielder, GameObject target, float damage) : base("spr_Sword", scale, wielder, target, damage)
         {
-            this.wielder = wielder;
-            this.damage = damage;
-            this.target = target;
-            origin = Center;
             offsetDegrees = -45;
             Reset();
         }
@@ -31,20 +21,17 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         {
             if (swingRange <= 0 && cooldown <= 0)
             {
-                swingRange = swingRangeMax;
-                AngularDirection = target.GlobalPosition - wielder.GlobalPosition;
-                Degrees += swingRangeMax / 2;
-                damagedObjects.Clear();
-                cooldown = cooldownMax;
                 base.Reset();
+                swingRange = swingRangeMax;
+                Degrees += swingRangeMax / 2;
             }
         }
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            position = wielder.Position;
             if (visible)
             {
-                position = wielder.Position;
                 int x = (int)(Math.Cos((Degrees + offsetDegrees / 2) * (Math.PI / 180)) * 32);
                 int y = (int)(Math.Sin((Degrees + offsetDegrees / 2) * (Math.PI / 180)) * 32);
                 position += new Vector2(x, y);

@@ -61,6 +61,8 @@
     <Compile Include="GameManagement\SpriteSheet.cs" />
     <Compile Include="GameManagement\TextGameObject.cs" />
     <Compile Include="GameObjects\BaseEntity.cs" />
+    <Compile Include="GameObjects\EntityThings\Bolt.cs" />
+    <Compile Include="GameObjects\EntityThings\Attack.cs" />
     <Compile Include="GameObjects\EntityThings\PathfindingAI.cs" />
     <Compile Include="GameObjects\EntityThings\Sword.cs" />
     <Compile Include="GameObjects\MiniMap.cs" />

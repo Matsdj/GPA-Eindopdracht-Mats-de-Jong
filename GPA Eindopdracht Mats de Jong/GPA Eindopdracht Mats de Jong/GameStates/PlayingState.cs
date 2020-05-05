@@ -25,6 +25,8 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             
             player = new BaseEntity("spr_Humanoid", scale, map.RandomFreePositionInMap(), map, world, true, cursor);
             player.movementSpeed *= 3;
+            player.maxHealth *= 2;
+            player.health *= 2;
             world.Add(player);
             for(int i = 0; i < map.Columns/5; i++)
             {

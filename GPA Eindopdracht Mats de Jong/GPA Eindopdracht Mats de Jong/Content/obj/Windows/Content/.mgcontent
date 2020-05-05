@@ -4,6 +4,7 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Mats/Documents/GitHub/GPA-Eindopdracht-Mats-de-Jong/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/spr_Bolt.png</File>
     <File>C:/Users/Mats/Documents/GitHub/GPA-Eindopdracht-Mats-de-Jong/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/spr_Cursor.png</File>
     <File>C:/Users/Mats/Documents/GitHub/GPA-Eindopdracht-Mats-de-Jong/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/spr_Floor.png</File>
     <File>C:/Users/Mats/Documents/GitHub/GPA-Eindopdracht-Mats-de-Jong/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/spr_Humanoid.png</File>
@@ -11,6 +12,7 @@
     <File>C:/Users/Mats/Documents/GitHub/GPA-Eindopdracht-Mats-de-Jong/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/spr_Wall.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

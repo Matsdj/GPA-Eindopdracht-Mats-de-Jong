@@ -11,7 +11,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
 {
     class BaseEntity : RotatingSpriteGameObject
     {
-        bool isPlayer;
+        protected bool isPlayer;
         public float movementSpeed = 16,
             maxHealth = 10,
             health = 0, 
@@ -21,7 +21,8 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         protected PathfindingAI pathfindingAI;
         protected SpriteGameObject targetEntity;
         protected Vector2[] path;
-        protected RotatingSpriteGameObject meleeAttack;
+        protected Attack mainAttack;
+        protected Attack secondaryAttack;
         public BaseEntity(String asset, int scale, Vector2 position, MapV2 map, GameObjectList world, bool isPlayer, SpriteGameObject targetEntity) : base(asset, scale)
         {
             this.isPlayer = isPlayer;
@@ -37,8 +38,10 @@ namespace GPA_Eindopdracht_Mats_de_Jong
 
             this.movementSpeed *= scale;
             this.health = maxHealth;
-            this.meleeAttack = new Sword(scale, this, targetEntity, attack);
-            world.Add(meleeAttack);
+            this.mainAttack = new Sword(scale, this, targetEntity, attack);
+            this.secondaryAttack = new Bolt(scale, this, targetEntity, attack, map);
+            world.Add(mainAttack);
+            world.Add(secondaryAttack);
         }
         public override void Update(GameTime gameTime)
         {
@@ -69,7 +72,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         }
         public virtual void EntityCollision()
         {
-            foreach(GameObject obj in world.Children)
+            if (visible) foreach(GameObject obj in world.Children)
             {
                 if (obj.Visible && obj != this && obj is BaseEntity)
                 {
@@ -96,7 +99,8 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                     velocity = new Vector2(0, 0);
                 }
             }
-            if ((targetEntity.Position - position).Length() < 128) meleeAttack.Reset();
+            if ((targetEntity.Position - position).Length() < map.CellWidth * 2) mainAttack.Reset();
+            if ((targetEntity.Position - position).Length() < map.CellWidth * 10) secondaryAttack.Reset();
         }
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -142,9 +146,17 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                 //Attack1
                 if (inputHelper.MouseLeftButtonDown())
                 {
-                    meleeAttack.Reset();
+                    mainAttack.Reset();
+                }
+                if (inputHelper.MouseRightButtonDown())
+                {
+                    secondaryAttack.Reset();
                 }
             }
+        }
+        public bool IsPlayer
+        {
+            get { return isPlayer; }
         }
     }
 }
