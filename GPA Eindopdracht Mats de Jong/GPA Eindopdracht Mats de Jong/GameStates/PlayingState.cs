@@ -27,10 +27,13 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             world.Add(map);
             
             player = new BaseEntity("spr_Humanoid", scale, map.RandomFreePositionInMap(), map, world, true, cursor);
+            //Buffs player because else it is to hard
             player.movementSpeed *= 3;
             player.maxHealth *= 4;
             player.health *= 4;
+
             world.Add(player);
+            //Adds enemies
             for(int i = 0; i < map.Columns/5; i++)
             {
                 world.Add(new BaseEntity("spr_Humanoid", scale, map.RandomFreePositionInMap(), map, world, false, player));
@@ -46,6 +49,16 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         {
             base.Update(gameTime);
             world.Position -= player.GlobalPosition - (GameEnvironment.Screen.ToVector2() / 2);
+            //Checks if the game is over
+            bool enemiesExist = false;
+            foreach(GameObject obj in world.Children)
+            {
+                if(obj is BaseEntity && (obj as BaseEntity).Visible && !(obj as BaseEntity).IsPlayer)
+                {
+                    enemiesExist = true;
+                }
+            }
+            if (player.health <= 0 || !enemiesExist) { GameEnvironment.GameStateManager.SwitchTo("StartState"); }
         }
     }
 }

@@ -19,6 +19,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            //Displays stuff
             text = "score: " + score + "\n" +
                 "Health: " + player.health + "\n" +
                 "primaryCooldown: " + (int)player.PrimaryAttack.Cooldown + "\n" +

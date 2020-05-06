@@ -22,7 +22,6 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             CellWidth = tileSize;
             CellHeight = tileSize;
             GenerateMap(size);
-            //velocity = new Vector2(-200,-200);
         }
         public override void Update(GameTime gameTime)
         {
@@ -35,6 +34,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         public void GenerateMap(Point size)
         {
             this.size = size;
+            //Loop through grid and add a wall or floor
             for (int y = 0; y < size.Y; y++)
             {
                 for (int x = 0; x < size.X; x++)
@@ -48,29 +48,8 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                         Floor floor = new Floor(floorColors[0], floorColors[1], scale);
                         Add(floor, x, y);
                     }
-                    //Floor floorT = new Floor(floorColors[0], floorColors[1], scale);
-                    //Add(floorT, x, y);
                 }
             }
-            /*
-            //Print in console how the map array looks
-            for (int y = 0; y < size.Y; y++)
-            {
-                String consoleLine = "";
-                for (int x = 0; x < size.X; x++)
-                {
-                    if (grid[x,y] is Floor)
-                    {
-                        consoleLine += 0 + ":";
-                    }
-                    else
-                    {
-                        consoleLine += 1 + ":";
-                    }
-                }
-                Console.WriteLine(consoleLine);
-            }
-            //*/
         }
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -78,11 +57,13 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         }
         public Point GridLoc(SpriteGameObject obj)
         {
+            //Converts position to grid location
             Point gridLoc;
             gridLoc.X = (int)(obj.Position.X + obj.Origin.X) / (CellWidth);
             gridLoc.Y = (int)(obj.Position.Y + obj.Origin.Y) / (CellHeight);
             return gridLoc;
         }
+        //Used when adding new Entities
         public Vector2 RandomFreePositionInMap()
         {
             int x = GameEnvironment.Random.Next(1, Columns - 1);

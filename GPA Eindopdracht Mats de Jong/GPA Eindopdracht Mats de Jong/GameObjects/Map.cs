@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GPA_Eindopdracht_Mats_de_Jong
 {
-    //This map version is laggy
+    //This map version is laggy and not used later in this project
     class Map : GameObjectList
     {
         public int scale;
@@ -25,8 +25,10 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             AddMissingTiles();
             floorSprite = new SpriteSheet("spr_Floor", scale);
             wallSprite = new SpriteSheet("spr_Wall", scale);
+            //Colors the base sprites
             floorSprite.Sprite = Custom.ColorSprite(floorSprite.Sprite, Color.Green, Color.DarkGreen);
             wallSprite.Sprite = Custom.ColorSprite(wallSprite.Sprite, Color.Black, Color.DarkGreen);
+
             velocity = new Vector2(200,200);
         }
         public override void Update(GameTime gameTime)
@@ -34,6 +36,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             base.Update(gameTime);
             AddMissingTiles();
         }
+        //This was to laggy
         public void AddMissingTiles()
         {
             Point screen = GameEnvironment.Screen;

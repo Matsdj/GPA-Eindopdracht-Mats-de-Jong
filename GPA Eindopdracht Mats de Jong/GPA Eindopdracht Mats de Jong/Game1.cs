@@ -16,8 +16,10 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             screen = new Point(1280, 720);
             ApplyResolutionSettings();
 
-            GameStateManager.AddGameState("PlayState", new PlayingState());
-            GameStateManager.SwitchTo("PlayState");
+            PlayingState playingState = new PlayingState();
+            GameStateManager.AddGameState("StartState", new StartState(playingState));
+            GameStateManager.SwitchTo("StartState");
+            GameStateManager.AddGameState("PlayState", playingState);
         }
     }
 }

@@ -9,16 +9,18 @@ namespace GPA_Eindopdracht_Mats_de_Jong
 {
     class Bolt : Attack
     {
-        protected int lifeTimeMax = 2; //in seconds
+        protected int lifeTimeMax = 2; //in seconds, decides how long the bolt lives
         protected float speed = 128;
         protected float piercing = 1;
         GameObjectGrid grid;
         public Bolt(int scale, GameObject wielder, GameObject target, float damage, GameObjectGrid grid) : base("spr_Bolt", scale, wielder, target, damage, 6)
         {
+            //Grid is needed for wall collision
             this.grid = grid;
             Reset();
             cooldown = 0;
         }
+        //Reset is called when an entity attacks
         public override void Reset()
         {
             if (cooldown <= 0)
@@ -37,6 +39,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             base.Update(gameTime);
             if (visible)
             {
+                //Damage other BaseEntities
                 foreach (GameObject obj in (parent as GameObjectList).Children)
                 {
                     if (obj != wielder && obj is BaseEntity)
@@ -49,6 +52,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                         }
                     }
                 }
+                //Disapear against walls
                 foreach (SpriteGameObject obj in grid.Objects)
                 {
                     if (obj is Wall && CollidesWith(obj))
@@ -62,6 +66,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                     }
                 }
             }
+            //Disapear when cooldown is 0 or when it has attacked to entities
             if (damagedObjects.Count > piercing || cooldown <= 0)
             {
                 visible = false;

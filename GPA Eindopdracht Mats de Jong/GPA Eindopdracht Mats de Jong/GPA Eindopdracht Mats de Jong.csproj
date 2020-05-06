@@ -74,6 +74,7 @@
     <Compile Include="GameObjects\MapV2.cs" />
     <Compile Include="GameObjects\Map.cs" />
     <Compile Include="GameStates\PlayingState.cs" />
+    <Compile Include="GameStates\StartState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Mats/Documents/GitHub/GPA-Eindopdracht-Mats-de-Jong/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/spr_Background.png</SourceFile>
-  <SourceTime>2020-05-06T01:06:09.512101+02:00</SourceTime>
+  <SourceTime>2020-05-06T01:48:12.4574154+02:00</SourceTime>
   <DestFile>C:/Users/Mats/Documents/GitHub/GPA-Eindopdracht-Mats-de-Jong/GPA Eindopdracht Mats de Jong/GPA Eindopdracht Mats de Jong/Content/bin/Windows/Content/spr_Background.xnb</DestFile>
-  <DestTime>2020-05-06T01:11:08.3948075+02:00</DestTime>
+  <DestTime>2020-05-06T01:54:13.6270538+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

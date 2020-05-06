@@ -13,7 +13,7 @@ public class Custom
         //Get the Colors           
         Color[] pixels = new Color[Texture.Width * Texture.Height];
         Texture.GetData<Color>(pixels);
-        //Color the white pixels
+        //Color the white and lightgray pixels
         for (int i = 0; i < pixels.Length; i++)
         {
             if (pixels[i].R == 255 && pixels[i].G == 255 && pixels[i].B == 255)
@@ -29,6 +29,7 @@ public class Custom
         Texture.SetData<Color>(pixels);
         return Texture;
     }
+    //Is only used in the laggy Map version
     public static Vector2 SnapToGrid(int scale, Vector2 pos)
     {
         int tileSize = scale * 8;

@@ -36,6 +36,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             int realHeight = (tileCount.Y) * realTileSize;
             miniMapRect = new Rectangle((int)DrawLoc.X, (int)DrawLoc.Y, realWidth, realHeight);
         }
+        //decides in which corner to draw the MiniMap
         public enum ViewLoc
         {
             TopLeft,
@@ -44,10 +45,10 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             base.Draw(gameTime, spriteBatch);
+            //update & draw background of MiniMap
             miniMapRect.Location = new Point((int)DrawLoc.X, (int)DrawLoc.Y);
-            Rectangle backgroundRect = new Rectangle(miniMapRect.X - spriteWidth, miniMapRect.Y - spriteWidth, miniMapRect.Width + spriteWidth*2, miniMapRect.Height + spriteWidth*2);
-            DrawingHelper.DrawRectangle(backgroundRect, spriteBatch, Color.Gray, true);
             DrawingHelper.DrawRectangle(miniMapRect, spriteBatch, Color.Black, true);
+
             DrawMiniMap(spriteBatch);
         }
         private void DrawMiniMap(SpriteBatch spriteBatch)
@@ -92,6 +93,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         }
         private Vector2 ConvertToRealPosistion(SpriteGameObject obj)
         {
+            //Converts obj location to a location in the topleft
             float x = map.GridLoc(obj).X;
             float y = map.GridLoc(obj).Y;
             Texture2D sprite = obj.Sprite.Sprite;

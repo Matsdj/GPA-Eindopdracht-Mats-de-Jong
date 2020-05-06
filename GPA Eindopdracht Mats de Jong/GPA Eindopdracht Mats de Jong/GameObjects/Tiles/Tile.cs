@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace GPA_Eindopdracht_Mats_de_Jong
 {
+    //Base Tile class
     class Tile : SpriteGameObject
     {
         public Tile(Color light, Color dark, int scale, string assetName) : base(assetName, 0, "", 0, scale)

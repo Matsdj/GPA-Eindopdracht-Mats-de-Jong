@@ -21,7 +21,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             {
                 //Initialize map
                 int[,] gridMap = new int[map.Columns, map.Rows];
-                //Create gridMap
+                //Create gridMap which stores the distance each tile is from the obj
                 gridMap[startPoint.X, startPoint.Y] = 1;
                 for (int i = 1; (i <= maxPathRadius) && (pathLength == 0); i++)
                 {
@@ -81,6 +81,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                     }
                 }
                 path = new Vector2[gridPath.Length];
+                //Convert the gridPath locations to positions
                 for (int i = 0; i < path.Length; i++)
                 {
                     path[i] = gridPath[i].ToVector2() * map.CellWidth;

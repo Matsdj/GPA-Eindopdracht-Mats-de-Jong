@@ -17,6 +17,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         protected List<GameObject> damagedObjects = new List<GameObject>();
         public Attack(string assetName, int scale, GameObject wielder, GameObject target, float damage, float cooldownMax = 2) : base(assetName, scale)
         {
+            //Setting values
             this.wielder = wielder;
             this.damage = damage;
             this.target = target;
@@ -24,6 +25,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             origin = Center;
             Reset();
         }
+        //Reset is called when an entity attacks
         public override void Reset()
         {
             if (cooldown <= 0)
