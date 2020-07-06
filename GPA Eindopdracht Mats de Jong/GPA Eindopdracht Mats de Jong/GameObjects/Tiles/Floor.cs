@@ -9,6 +9,9 @@ namespace GPA_Eindopdracht_Mats_de_Jong
 {
     class Floor : Tile
     {
-        public Floor(Color light, Color dark, int scale) : base(light, dark, scale, "spr_Floor") { }
+        public Floor(int area, int scale) : base(scale, "spr_Floor")
+        {
+            sprite.Sprite = textures[area].floor;
+        }
     }
 }

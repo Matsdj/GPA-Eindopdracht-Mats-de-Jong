@@ -78,11 +78,11 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                 {
                     Rectangle spritePart = new Rectangle(0, 0, sprite.Width, sprite.Height);
                     Color col = Color.White;
-                    if (obj is RotatingSpriteGameObject)
+                    if (obj is BaseEntity)
                     {
-                        RotatingSpriteGameObject rotObj = obj as RotatingSpriteGameObject;
+                        BaseEntity rotObj = obj as BaseEntity;
                         realPos += new Vector2(0.5f * spritePart.Width, 0.5f * spritePart.Height);
-                        spriteBatch.Draw(sprite, realPos, null, col, rotObj.Angle, rotObj.Origin, drawScale, SpriteEffects.None, 0);
+                        spriteBatch.Draw(rotObj.changedSprite, realPos, null, col, rotObj.Angle, rotObj.Origin, drawScale, SpriteEffects.None, 0);
                     }
                     else
                     {

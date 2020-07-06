@@ -26,8 +26,8 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             floorSprite = new SpriteSheet("spr_Floor", scale);
             wallSprite = new SpriteSheet("spr_Wall", scale);
             //Colors the base sprites
-            floorSprite.Sprite = Custom.ColorSprite(floorSprite.Sprite, Color.Green, Color.DarkGreen);
-            wallSprite.Sprite = Custom.ColorSprite(wallSprite.Sprite, Color.Black, Color.DarkGreen);
+            floorSprite.Sprite.SetData<Color>(Custom.ColorSprite(floorSprite.Sprite, Color.Green, Color.DarkGreen));
+            wallSprite.Sprite.SetData<Color>(Custom.ColorSprite(wallSprite.Sprite, Color.Black, Color.DarkGreen));
 
             velocity = new Vector2(200,200);
         }

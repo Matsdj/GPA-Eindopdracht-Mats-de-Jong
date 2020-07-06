@@ -23,12 +23,17 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         protected Vector2[] path;
         protected Attack primaryAttack;
         protected Attack secondaryAttack;
+
+        public Texture2D changedSprite;
         public BaseEntity(String asset, int scale, Vector2 position, MapV2 map, GameObjectList world, bool isPlayer, SpriteGameObject targetEntity) : base(asset, scale)
         {
             this.isPlayer = isPlayer;
 
             this.Origin = this.Center;
-            this.Sprite.Sprite = Custom.ColorSprite(this.Sprite.Sprite, Color.Chocolate, Color.SaddleBrown);
+            Color col1 = new Color(GameEnvironment.Random.Next(0, 255), GameEnvironment.Random.Next(0, 255), GameEnvironment.Random.Next(0, 255));
+            Color col2 = new Color(GameEnvironment.Random.Next(0, 255), GameEnvironment.Random.Next(0, 255), GameEnvironment.Random.Next(0, 255));
+            changedSprite = new Texture2D(GameEnvironment.Graphics, sprite.Sprite.Width, sprite.Sprite.Height);
+            changedSprite.SetData<Color>(Custom.ColorSprite(sprite.Sprite, col1, col2));
 
             this.position = position;
             this.map = map;
@@ -111,7 +116,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
         {
             if (visible)
             {
-                base.Draw(gameTime, spriteBatch);
+                spriteBatch.Draw(changedSprite, GlobalPosition, null, color, Angle - MathHelper.ToRadians(offsetDegrees), Origin, scale, SpriteEffects.None, 0);
 
                 //Draw Health above entity
                 Rectangle BackBar = new Rectangle((int)GlobalPosition.X - Width * scale / 2, (int)GlobalPosition.Y - Height * scale,

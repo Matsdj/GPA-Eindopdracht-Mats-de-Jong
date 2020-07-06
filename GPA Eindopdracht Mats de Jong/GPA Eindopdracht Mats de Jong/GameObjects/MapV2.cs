@@ -13,8 +13,7 @@ namespace GPA_Eindopdracht_Mats_de_Jong
     {
         private int scale;
         private Point size = new Point();
-        public Color[] floorColors = { Color.Green, Color.DarkGreen };
-        public Color[] wallColors = { Color.DarkGreen, new Color(0, 40, 0) };
+        public int area = 0;
         public MapV2(int scale, Point size) : base(size.Y, size.X)
         {
             this.scale = scale;
@@ -41,11 +40,11 @@ namespace GPA_Eindopdracht_Mats_de_Jong
                 {
                     if (x == 0 || y == 0 || x == size.X-1 || y == size.Y-1 ||GameEnvironment.Random.Next(0, 6) == 0)
                     {
-                        Wall wall = new Wall(wallColors[0], wallColors[1], scale);
+                        Wall wall = new Wall(area, scale);
                         Add(wall, x, y);
                     } else
                     {
-                        Floor floor = new Floor(floorColors[0], floorColors[1], scale);
+                        Floor floor = new Floor(area, scale);
                         Add(floor, x, y);
                     }
                 }

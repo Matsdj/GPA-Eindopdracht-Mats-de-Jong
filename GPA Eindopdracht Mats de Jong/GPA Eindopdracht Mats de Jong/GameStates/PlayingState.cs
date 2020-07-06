@@ -60,5 +60,26 @@ namespace GPA_Eindopdracht_Mats_de_Jong
             }
             if (player.health <= 0 || !enemiesExist) { GameEnvironment.GameStateManager.SwitchTo("StartState"); }
         }
+
+        private float col;
+        public override void HandleInput(InputHelper inputHelper)
+        {
+            base.HandleInput(inputHelper);
+            if (inputHelper.IsKeyDown(Keys.Space))
+            {
+                col += 0.01f;
+                if (col > 1) col = 0;
+                Color mainColor = Custom.HSL2RGB(col, 0.5, 0.5);
+                if (inputHelper.IsKeyDown(Keys.LeftShift))
+                {
+                    Tile.textures[0].floor = (new areaTextures()).floor;
+                    Tile.textures[0].wall = (new areaTextures()).wall;
+                }
+                else
+                {
+                    Tile.textures[0] = new areaTextures(mainColor);
+                }
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Input;
 
 public class GameEnvironment : Game
 {
-    protected GraphicsDeviceManager graphics;
+    protected static GraphicsDeviceManager graphics;
     protected SpriteBatch spriteBatch;
     protected InputHelper inputHelper;
     protected Matrix spriteScale;
@@ -53,6 +53,10 @@ public class GameEnvironment : Game
     public static GameSettingsManager GameSettingsManager
     {
         get { return gameSettingsManager; }
+    }
+    public static GraphicsDevice Graphics
+    {
+        get { return graphics.GraphicsDevice; }
     }
 
     public bool FullScreen
